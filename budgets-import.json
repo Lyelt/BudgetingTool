@@ -1,0 +1,10 @@
+{
+  "budgets" : {
+    "nick-budget" : {
+      "name" : "Nick's Budget"
+    },
+    "steph-budget" : {
+      "name" : "Steph's Budget"
+    }
+  }
+}

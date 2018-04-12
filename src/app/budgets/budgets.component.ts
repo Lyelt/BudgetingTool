@@ -4,6 +4,7 @@ import { DataService } from '../data.service';
 
 import { AngularFireDatabase } from 'angularfire2/database'; 
 import { Observable } from 'rxjs/Observable';
+import { AngularFireObject } from 'angularfire2/database/interfaces';
 
 @Component({
   selector: 'app-budgets',
@@ -19,25 +20,25 @@ import { Observable } from 'rxjs/Observable';
     
   ]
 })
-export class BudgetsComponent implements OnInit {
 
+export class BudgetsComponent implements OnInit {
   btnText: string = "Add";
   textboxText: string = '';
 
   budgetsObservable: Observable<any[]>;
- 
-  constructor(private _data: DataService, private db: AngularFireDatabase) { }
+
+  constructor(private _data: DataService, private db: AngularFireDatabase) {
+    this.budgetsObservable = db.list('/budgets').valueChanges();
+   }
 
   ngOnInit() {
-    this.budgetsObservable = this.getBudgets('/budgets');
-  }
-
-  getBudgets(path) : Observable<any[]> {
-    return this.db.list(path).valueChanges();
   }
 
   addItem() {
+    var newBudget = { name: this.textboxText  };
+    this.db.database.ref('/budgets').push(newBudget);
     this.textboxText = '';
   }
+
 
 }

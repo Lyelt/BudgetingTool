@@ -17,8 +17,9 @@
     <!--<p class="life-container" *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">
       {{ goal }}
     </p>-->
-    <p class="life-container" *ngFor="let budget of budgetsObservable | async">
+    <div class="life-container" *ngFor="let budget of budgetsObservable | async">
       {{ budget.name }}
-    </p>
+      <i class="material-icons remove-icon">delete_forever</i>
+    </div>
   </div>
 </div>

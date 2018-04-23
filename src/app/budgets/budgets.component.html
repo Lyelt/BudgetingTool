@@ -14,12 +14,10 @@
     </form>
   </div>
   <div class="col">
-    <!--<p class="life-container" *ngFor="let goal of goals; let i = index" (click)="removeItem(i)">
-      {{ goal }}
-    </p>-->
-    <div class="life-container" *ngFor="let budget of budgetsObservable | async">
+    <div class="life-container" *ngFor="let budget of budgetsObservable | async;">
       {{ budget.name }}
-      <i class="material-icons remove-icon">delete_forever</i>
+      <i class="material-icons remove-icon" (click)="removeItem(budget.key)">delete_forever</i>
+      <i class="material-icons rename-icon">mode_edit</i>
     </div>
   </div>
 </div>

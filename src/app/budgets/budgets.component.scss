@@ -2,37 +2,39 @@
     display: grid;
     grid-template-columns: 50% auto;
 }
+
 .col {
     padding: .4em 1.3em;
 }
-.color-dark {
-    background: #2885C4;
-}
-.color-light {
-    background: #57B3F1;
+
+td {
+    padding: 0.5em 0.5em;
 }
 
 input.txt {
-    border: 0;
+    border: .5;
+    border-radius: 10px;
     padding: 1em;
     width: 80%;
-    margin-bottom: 2em;
+    margin: 2em 2em 1em 1em;
 }
+
 input.btn {
     border: 0;
+    border-radius: 5px;
     display:block;
-    padding:1em 3em;
-    background:#A5F883;
-    color:#003A61;
-    margin-bottom:1em;
+    margin-left: 1em;
+    padding:1em 2em;
+    background:rgb(39, 144, 243);
+    color:rgb(255, 255, 255);
     cursor:pointer;
 }
+
 .life-container {
-    background:#3FA0E1;
     padding:.5em;
-    font-weight:bold;
-    cursor:pointer;
 }
-.remove-icon, .rename-icon {
+
+.remove-icon, .edit-icon {
     float: right;
+    cursor:pointer;
 }

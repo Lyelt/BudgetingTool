@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
-import { DataService } from '../data.service';
 
 
 @Component({
@@ -11,7 +10,7 @@ import { DataService } from '../data.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _data: DataService) { }
+  constructor() { }
 
   ngOnInit() {
      }

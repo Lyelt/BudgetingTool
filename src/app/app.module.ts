@@ -8,8 +8,6 @@ import { HomeComponent } from './home/home.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { DataService } from './data.service';
-
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -32,7 +30,7 @@ import { BudgetsComponent } from './budgets/budgets.component';
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [DataService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

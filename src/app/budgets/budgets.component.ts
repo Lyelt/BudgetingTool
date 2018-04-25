@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
-import { DataService } from '../data.service';
 
 import { AngularFireDatabase } from 'angularfire2/database'; 
 import { Observable } from 'rxjs/Observable';
@@ -30,8 +29,10 @@ export class BudgetsComponent implements OnInit {
   budgetsObservable: Observable<any[]>;
   budgetsRef: AngularFireList<any>;
 
-  constructor(private _data: DataService, private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase) {
     this.budgetsRef = db.list('/budgets');
+
+    // Use snapshotChanges so we can save the DB key
     this.budgetsObservable = this.budgetsRef.snapshotChanges().map(
       changes => {
           return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));

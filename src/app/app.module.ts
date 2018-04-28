@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from 'angularfire2';
@@ -26,6 +27,7 @@ import { BudgetsComponent } from './budgets/budgets.component';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
+    MaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule

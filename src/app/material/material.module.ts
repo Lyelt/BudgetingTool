@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule, MatStepperModule, MatInputModule, MatFormFieldModule, MatAutocompleteModule, MatCardModule, MatDatepickerModule, MatNativeDateModule  } from '@angular/material';
+import { MatButtonModule, MatStepperModule, MatInputModule, MatFormFieldModule, 
+         MatAutocompleteModule, MatCardModule, MatDatepickerModule, MatNativeDateModule,
+         MatExpansionModule, MatToolbarModule  } from '@angular/material';
 
 const modules = [
     MatButtonModule,
@@ -10,7 +12,9 @@ const modules = [
     MatAutocompleteModule,
     MatCardModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatExpansionModule,
+    MatToolbarModule
 ]
 
 @NgModule({

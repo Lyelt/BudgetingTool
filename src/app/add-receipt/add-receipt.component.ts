@@ -31,8 +31,8 @@ export class AddReceiptComponent implements OnInit {
       changes => {
           return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
       });
-
-    this.expenseTime = new Date();
+    
+    this.setDate();
     this.budgetName = "Nick's Budget";
   }
 
@@ -49,11 +49,10 @@ export class AddReceiptComponent implements OnInit {
       description: this.expenseDesc
     }
 
-    this.db.list('/spending').push(newReceipt);
+    //this.db.list('/spending').push(newReceipt);
+  }
 
-    this.expenseAmount = 0;
+  setDate() {
     this.expenseTime = new Date();
-    this.expenseName = '';
-    this.expenseDesc = '';
   }
 }

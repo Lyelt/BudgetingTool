@@ -16,13 +16,17 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './../environments/environment';
 import { BudgetsComponent } from './budgets/budgets.component';
 import { AddReceiptComponent } from './add-receipt/add-receipt.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     BudgetsComponent,
-    AddReceiptComponent
+    AddReceiptComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

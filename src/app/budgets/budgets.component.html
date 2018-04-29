@@ -1,17 +1,14 @@
 <div class="container">
-  <div class="col">
-    <table class="life-container">
-      <tbody>
-          <tr class="budget-row" *ngFor="let budget of budgetsObservable | async;">
-              <td style="padding-right: 5em;">{{ budget.name }}</td>
-              <td><i class="material-icons edit-icon">settings</i></td>
-              <td><i class="material-icons remove-icon" (click)="removeItem(budget.key)">delete_forever</i></td>
-            </tr>
-      </tbody>
-    </table>
-    <mat-form-field>
-        <input matInput placeholder="New budget..." [(ngModel)]="textboxText">
-    </mat-form-field>
-    <i class="material-icons add-icon" (click)="addItem()">add_circle</i>
-  </div>
+  <mat-accordion class="budget-display">
+    <mat-expansion-panel *ngFor="let budget of budgetsObservable | async;">
+        <mat-expansion-panel-header>
+            <mat-panel-title>{{ budget.name }}</mat-panel-title>
+            <mat-panel-description></mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-action-row>
+            <button mat-button color="primary" >Edit</button>
+            <button mat-button color="warn" (click)="removeItem(budget.key)">Delete</button>
+          </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
 </div>

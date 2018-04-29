@@ -12,12 +12,6 @@ import { AngularFireList } from 'angularfire2/database';
   templateUrl: './budgets.component.html',
   styleUrls: ['./budgets.component.scss'],
   animations: [
-   
-    trigger('goals', [
-      transition('* => *', [
-        query(':enter', style({ opacity: 0 }), {optional: true})
-      ])
-    ])
     
   ]
 })

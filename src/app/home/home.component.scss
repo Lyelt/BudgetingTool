@@ -1,21 +1,3 @@
 .container {
-    display: grid;
-    grid-template-columns: 50% auto;
-}
-
-.col {
-    padding: .4em 1.3em;
-}
-
-i {
-    cursor:pointer;
-}
-
-.input-section {
-    width: 100%;
-    margin-top: 0.5em;
-}
-
-.submit-btn {
-    float: right;
+    display: flex;
 }

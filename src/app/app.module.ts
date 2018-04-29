@@ -15,12 +15,14 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { environment } from './../environments/environment';
 import { BudgetsComponent } from './budgets/budgets.component';
+import { AddReceiptComponent } from './add-receipt/add-receipt.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    BudgetsComponent
+    BudgetsComponent,
+    AddReceiptComponent
   ],
   imports: [
     BrowserModule,

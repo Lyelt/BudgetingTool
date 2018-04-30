@@ -5,6 +5,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { AngularFireObject } from 'angularfire2/database/interfaces';
 import { AngularFireList } from 'angularfire2/database';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-add-receipt',
@@ -23,7 +24,7 @@ export class AddReceiptComponent implements OnInit {
   expensesObservable: Observable<any[]>; 
   expensesRef: AngularFireList<any>; 
 
-  constructor(private db: AngularFireDatabase) { 
+  constructor(private db: AngularFireDatabase, public snackbar: MatSnackBar) { 
     this.expensesRef = db.list('/budgets/nick-budget/expenses');
 
     // Use snapshotChanges so we can save the DB key
@@ -34,6 +35,7 @@ export class AddReceiptComponent implements OnInit {
     
     this.setDate();
     this.budgetName = "Nick's Budget";
+    this.expenseDesc = "";
   }
 
   ngOnInit() {
@@ -49,7 +51,10 @@ export class AddReceiptComponent implements OnInit {
       description: this.expenseDesc
     }
 
-    //this.db.list('/spending').push(newReceipt);
+    this.db.list('/spending').push(newReceipt);
+    this.snackbar.open("Receipt added!", "Okay", {
+      duration: 5000,
+    });
   }
 
   setDate() {

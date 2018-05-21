@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
 import { FormBuilder } from '@angular/forms';
 import { AngularFireDatabase } from 'angularfire2/database'; 
@@ -15,6 +15,8 @@ import { MatSnackBar } from '@angular/material';
 
 export class AddReceiptComponent implements OnInit {
 
+  @Input() categoryName: string;
+
   expenseTime: Date;
   expenseAmount: number;
   budgetName: string;
@@ -25,7 +27,11 @@ export class AddReceiptComponent implements OnInit {
   expensesRef: AngularFireList<any>; 
 
   constructor(private db: AngularFireDatabase, public snackbar: MatSnackBar) { 
-    this.expensesRef = db.list('/budgets/nick-budget/expenses');
+    
+  }
+
+  ngOnInit() {
+    this.expensesRef = this.db.list('/budgets/nick-budget/expenses', ref => ref.orderByChild('category').equalTo(this.categoryName));
 
     // Use snapshotChanges so we can save the DB key
     this.expensesObservable = this.expensesRef.snapshotChanges().map(
@@ -36,10 +42,6 @@ export class AddReceiptComponent implements OnInit {
     this.setDate();
     this.budgetName = "Nick's Budget";
     this.expenseDesc = "";
-  }
-
-  ngOnInit() {
-     
   }
 
   addNewReceipt() {

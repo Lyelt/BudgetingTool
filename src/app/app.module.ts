@@ -19,6 +19,7 @@ import { AddReceiptComponent } from './add-receipt/add-receipt.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { OverviewComponent } from './overview/overview.component';
+import { OverviewCategoryComponent } from './overview-category/overview-category.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { OverviewComponent } from './overview/overview.component';
     AddReceiptComponent,
     HeaderComponent,
     FooterComponent,
-    OverviewComponent
+    OverviewComponent,
+    OverviewCategoryComponent
   ],
   imports: [
     BrowserModule,

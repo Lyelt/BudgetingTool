@@ -1,3 +1,3 @@
-<p>
-  overview works!
-</p>
+<div class="spending-visual" *ngFor="let category of categoryObservable | async">
+  <app-overview-category [categoryName]="category.name"></app-overview-category>
+</div>

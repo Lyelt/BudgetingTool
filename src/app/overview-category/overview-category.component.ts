@@ -46,20 +46,27 @@ export class OverviewCategoryComponent implements OnInit {
   }
 
   getTotalBudgeted() {
-    this.expensesRef.valueChanges().subscribe(expArr => expArr.forEach(exp => {
-      let expObj = <any>exp;
-      this.expenseNames.push(expObj.name);
-      this.categoryTotal += expObj.monthly;
-  }));
+
+    this.expensesRef.valueChanges().subscribe(expArr => {
+      this.categoryTotal = 0;
+      expArr.forEach(exp => {
+        let expObj = <any>exp;
+        this.expenseNames.push(expObj.name);
+        this.categoryTotal += expObj.monthly;
+      });
+    });
 }
 
   getTotalSpent() {
-    this.spendingRef.valueChanges().subscribe(spentArr => spentArr.forEach(spent => {
-      let spentObj = <any>spent;
-      if (this.expenseNames.indexOf(spentObj.expense) >= 0) {
-        this.categorySpent += spentObj.amount;
-      }
-  }));
+    this.spendingRef.valueChanges().subscribe(spentArr => {
+      this.categorySpent = 0;
+      spentArr.forEach(spent => {
+        let spentObj = <any>spent;
+        if (this.expenseNames.indexOf(spentObj.expense) >= 0) {
+          this.categorySpent += spentObj.amount;
+        }
+      });
+    });
 }
   getSpendPercentage() {
     return this.categorySpent / this.categoryTotal * 100;

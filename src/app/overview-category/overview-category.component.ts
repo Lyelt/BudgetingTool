@@ -28,7 +28,7 @@ export class OverviewCategoryComponent implements OnInit {
 
 
   ngOnInit() {
-    this.spendingRef = this.db.list('/spending', ref => ref.orderByChild('expense'));//.equalTo(this.categoryName));
+    this.spendingRef = this.db.list('/spending', ref => ref.orderByChild('expense'));
     this.expensesRef = this.db.list('budgets/nick-budget/expenses', ref => ref.orderByChild('category').equalTo(this.categoryName));
 
     this.expensesObservable = this.expensesRef.snapshotChanges().map(

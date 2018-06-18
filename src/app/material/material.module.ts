@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule, MatStepperModule, MatInputModule, MatFormFieldModule, 
          MatAutocompleteModule, MatCardModule, MatDatepickerModule, MatNativeDateModule,
-         MatExpansionModule, MatToolbarModule, MatSnackBarModule, MatMenuModule, MatProgressBarModule  } from '@angular/material';
+         MatExpansionModule, MatToolbarModule, MatSnackBarModule, MatMenuModule, MatProgressBarModule,
+         MatProgressSpinnerModule  } from '@angular/material';
 
 const modules = [
     MatButtonModule,
@@ -17,7 +18,8 @@ const modules = [
     MatToolbarModule,
     MatSnackBarModule,
     MatMenuModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatProgressSpinnerModule
 ]
 
 @NgModule({

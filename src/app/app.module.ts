@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -20,6 +20,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { OverviewComponent } from './overview/overview.component';
 import { OverviewCategoryComponent } from './overview-category/overview-category.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { UserComponent } from './user/user.component';
+
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,10 @@ import { OverviewCategoryComponent } from './overview-category/overview-category
     HeaderComponent,
     FooterComponent,
     OverviewComponent,
-    OverviewCategoryComponent
+    OverviewCategoryComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +48,10 @@ import { OverviewCategoryComponent } from './overview-category/overview-category
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

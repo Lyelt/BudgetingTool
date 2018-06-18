@@ -1,0 +1,10 @@
+<mat-card class="login-container">
+    <mat-form-field>
+      <input matInput placeholder="Email" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getEmailMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" [formControl]="password" type="password" required>
+      <mat-error *ngIf="password.invalid">{{getPWMessage()}}</mat-error>
+    </mat-form-field>
+</mat-card>

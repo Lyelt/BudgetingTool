@@ -7,4 +7,10 @@
       <input matInput placeholder="Password" [formControl]="password" type="password" required>
       <mat-error *ngIf="password.invalid">{{getPWMessage()}}</mat-error>
     </mat-form-field>
-</mat-card>
+      <div class="button-row">
+        <button class="row-element" mat-raised-button color="primary" (click)="loginEmail()">Login</button>
+        <button class="row-element" mat-raised-button color="accent" (click)="loginGoogle()">Login With Google</button>
+        <label class="create-label row-element">No account? <a href="/register">Create one!</a></label>
+        <label class="create-label row-element"><a href="/forgot">Forgot password</a></label>
+      </div>
+  </mat-card>

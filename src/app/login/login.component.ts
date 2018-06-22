@@ -1,27 +1,25 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { moveIn } from '../router.animations';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FirebaseApp } from 'angularfire2';
 import * as firebase from 'firebase/app';
 import { AuthService } from '../auth.service';
 import { FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  animations: [moveIn()],
-  host: {'[@moveIn]': ''}
+  animations: []
 })
+
 export class LoginComponent implements OnInit {
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required, Validators.minLength(6)])
-  user = null;
+  email : FormControl = new FormControl('', [Validators.required, Validators.email]);
+  password : FormControl = new FormControl('', [Validators.required, Validators.minLength(6)])
+  user : firebase.User = null;
 
-  constructor(private auth: AuthService) {
-
-  }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
     this.auth.getAuthState().subscribe(user => this.user = user);
@@ -43,4 +41,7 @@ export class LoginComponent implements OnInit {
     this.auth.loginGoogle();
   }
 
+  loginEmail() {
+
+  }
 }

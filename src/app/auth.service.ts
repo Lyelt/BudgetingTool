@@ -25,17 +25,49 @@ export class AuthService {
     return this.authState;
   }
 
+  // create new user with email/password
+  signup(email: string, password: string) {
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    .then(() => {
+      this.navigate('');
+    })
+    .catch(err => {
+      return err.message;
+    });
+  }
+
   // popup to login with google account
   loginGoogle() {
-    return this.afAuth.auth.signInWithPopup(
+    this.afAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
-    );
+    ).then(() => {
+      this.navigate('home');
+    })
+    .catch(err => {
+      return err.message;
+    });
+  }
+
+  // log in with an email and password
+  loginEmail(email: string, password: string) {
+    this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      this.navigate('home');
+    })
+    .catch(err => {
+      return err.message;
+    });
   }
 
   // log out (returns a promise) and return to the home (login) page
   logout() {
     this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['']);
+      this.navigate('');
     });
+  }
+
+  // navigate the user to a new page
+  navigate(location: string) {
+    this.router.navigate([location]);
   }
 }

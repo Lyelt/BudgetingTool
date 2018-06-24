@@ -1,0 +1,44 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-container > * {
+    margin: 1em;
+}
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+}
+
+.create-label {
+    font-size: .75em;
+}
+
+a {
+    text-decoration: underline;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.create-element {
+    min-width: 13em;
+    width: auto;
+    margin: .5em;
+}
+
+.login-image {
+    width: auto;
+    height: auto;
+    max-width: 2em;
+    max-height: 2em;
+}

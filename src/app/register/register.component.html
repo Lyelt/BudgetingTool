@@ -1,3 +1,22 @@
-<p>
-  register works!
-</p>
+<div class="login-container">
+    <mat-card class="login-card">
+      <mat-form-field>
+        <input matInput placeholder="Email" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getEmailMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" [formControl]="password" type="password" required>
+        <mat-error *ngIf="password.invalid">{{getPWMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Confirm Password" [formControl]="password" type="password" required>
+          <mat-error *ngIf="password.invalid">{{getPWMessage()}}</mat-error>
+        </mat-form-field>
+        <div class="button-row">
+          <button class="create-element" mat-raised-button color="primary" (click)="createAccount()">
+              Create
+          </button>
+        </div>
+    </mat-card>
+  </div>
+  

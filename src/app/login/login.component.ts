@@ -42,6 +42,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginEmail() {
-    this.auth.loginEmail(this.email.value, this.password.value);
+    let errMsg = this.auth.loginEmail(this.email.value, this.password.value);
+    this.email.setValue('');
+    this.password.setValue('');
   }
 }

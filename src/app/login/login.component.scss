@@ -15,12 +15,12 @@
     height: 100%;
 }
 
-.create-label {
-    font-size: .75em;
-}
-
 a {
     text-decoration: underline;
+}
+
+.create-label {
+    font-size: .8em;
 }
 
 .button-row {
@@ -41,4 +41,9 @@ a {
     height: auto;
     max-width: 2em;
     max-height: 2em;
+}
+
+.error-message {
+    font-size: .8em;
+    color: red;
 }

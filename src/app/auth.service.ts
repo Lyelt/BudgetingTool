@@ -34,6 +34,8 @@ export class AuthService {
     .catch(err => {
       return err.message;
     });
+
+    return 'Invalid email or password';
   }
 
   // popup to login with google account

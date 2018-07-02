@@ -1,27 +1,37 @@
 <div class="login-container">
   <mat-card class="login-card">
+
     <mat-form-field>
       <input matInput placeholder="Email" [formControl]="email" required>
       <mat-error *ngIf="email.invalid">{{getEmailMessage()}}</mat-error>
     </mat-form-field>
+
     <mat-form-field>
       <input matInput placeholder="Password" [formControl]="password" type="password" required>
       <mat-error *ngIf="password.invalid">{{getPWMessage()}}</mat-error>
     </mat-form-field>
+
       <div class="button-row">
+        <label id="ErrorMessage" class="error-message" hidden>
+            Invalid email or password. <label class="create-label row-element"><a href="/forgot">Forgot password?</a></label>
+        </label>
+
         <button class="row-element" mat-raised-button color="primary" (click)="loginEmail()">
             Login
         </button>
+
         <button class="row-element" mat-raised-button (click)="loginGoogle()">
             <img class="login-image" src="./assets/google.jpg"/>
             Login With Google
         </button>
+
         <button class="row-element" mat-raised-button (click)="loginGithub()">
             <img class="login-image" src="./assets/github.jpg"/>
             Login With GitHub
         </button>
         <label class="create-label row-element">No account? <a href="/register">Create one!</a></label>
-        <label class="create-label row-element"><a href="/forgot">Forgot password</a></label>
+        
       </div>
+
   </mat-card>
 </div>
